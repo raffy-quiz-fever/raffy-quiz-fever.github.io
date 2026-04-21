@@ -1,0 +1,25 @@
+{
+  "name": "quiz",
+  "version": "1.0.0",
+  "description": "Система за създаване, управление, и попълване на тестове със свободен достъп.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raffy-quiz-fever/raffy-quiz-fever.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/raffy-quiz-fever/raffy-quiz-fever.github.io/issues"
+  },
+  "homepage": "https://github.com/raffy-quiz-fever/raffy-quiz-fever.github.io#readme",
+  "dependencies": {
+    "lit-html": "3.3.2",
+    "page": "1.11.6"
+  }
+}
