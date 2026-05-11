@@ -26,7 +26,7 @@ function addOwner(object) {
 
 // Quiz Collection
 export async function getQuizes() {
-    return await api.get(host + '/classes/Quiz');
+    return (await api.get(host + '/classes/Quiz')).results;
 }
 
 export async function getQuizById(id) {
@@ -47,8 +47,12 @@ export async function deleteQuiz(id) {
 }
 
 // Question Collection
-export async function getQuestionsByQuizId(quizId) {
-    const query = JSON.stringify({ quiz: createPointer('Quiz', quizId)});
+export async function getQuestionsByQuizId(quizId, ownerId) {
+    const query = JSON.stringify({ 
+        quiz: createPointer('Quiz', quizId),
+        owner: createPointer('_User', ownerId)
+    
+    });
     const response = await api.get(host + '/classes/Question?where=' + encodeURIComponent(query));
     return response.results;
 }
@@ -66,5 +70,16 @@ export async function updateQuestion(id, question) {
 
 export async function deleteQuestion(id) {
     return await api.del(host + '/classes/Question/' + id);
+    
+}
+
+// Solution Collection
+export async function getSolutionsByUserId(userId) {
+    const query = JSON.stringify({ owner: createPointer('_User', userId) });
+    const response = await api.get(host + '/classes/Solution?where=' + encodeURIComponent(query));
+    return response.results
+}
+
+export async function getSolutionsByQuizId(quizId) {
     
 }
